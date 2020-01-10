@@ -1,17 +1,16 @@
-﻿using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Provider.Tests
 {
     [TestClass]
     public class Unit
     {
-        private FileManager manager;
+        private ExcelManager manager;
 
         [TestInitialize]
         public void Init()
         {
-            manager = new FileManager();
+            manager = new ExcelManager();
         }
 
         [TestMethod]
@@ -38,13 +37,16 @@ namespace Provider.Tests
         }
 
         [TestMethod]
-        public void GetExcelData_FileExists_CorrectAmountOfColumns()
+        public void GetExcelData_FileExists_CorrectAmountOfSheets()
         {
             //Arrange
-            var expectedColumnsCount = 7;
+            var expectedSheetCount = 4;
 
             //Act
-            manager.GetExcelData();
+            var actualSheetCount = manager.GetExcelData().Sheets.Count;
+
+            //Assert
+            Assert.AreEqual(expectedSheetCount, actualSheetCount);
         }
     }
 }

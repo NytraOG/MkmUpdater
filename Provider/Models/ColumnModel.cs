@@ -6,10 +6,10 @@ namespace Provider.Models
     {
         public ColumnModel()
         {
-            Entrys = new Dictionary<string, decimal>();
+            Entrys = new Dictionary<string, string>();
         }
 
         public string                      Description { get; set; }
-        public Dictionary<string, decimal> Entrys      { get; set; }
+        public Dictionary<string, string> Entrys      { get; set; }
     }
 }
