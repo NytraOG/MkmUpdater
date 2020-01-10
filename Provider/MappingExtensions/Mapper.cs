@@ -4,6 +4,5 @@ namespace Provider.MappingExtensions
 {
     public static class Mapper
     {
-
     }
 }
