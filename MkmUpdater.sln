@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MkmUpdater", "MkmUpdater\Mk
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MkmUpdater.Tests", "MkmUpdater.Tests\MkmUpdater.Tests.csproj", "{32771657-01D8-478A-A67A-9A0E651AD183}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Provider", "Provider\Provider.csproj", "{6100A033-EB18-43E5-9EC3-7401E778709C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Provider.Tests", "Provider.Tests\Provider.Tests.csproj", "{B31158D2-13B4-4556-81CC-AA842F4B33A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{32771657-01D8-478A-A67A-9A0E651AD183}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32771657-01D8-478A-A67A-9A0E651AD183}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32771657-01D8-478A-A67A-9A0E651AD183}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6100A033-EB18-43E5-9EC3-7401E778709C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6100A033-EB18-43E5-9EC3-7401E778709C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6100A033-EB18-43E5-9EC3-7401E778709C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6100A033-EB18-43E5-9EC3-7401E778709C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B31158D2-13B4-4556-81CC-AA842F4B33A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B31158D2-13B4-4556-81CC-AA842F4B33A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B31158D2-13B4-4556-81CC-AA842F4B33A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B31158D2-13B4-4556-81CC-AA842F4B33A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
