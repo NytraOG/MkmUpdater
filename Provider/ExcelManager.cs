@@ -1,61 +1,53 @@
-﻿using System.Collections.Generic;
-using Excel = Microsoft.Office.Interop.Excel;
-using System.Configuration;
+﻿using System.Configuration;
+using System.IO;
+using ExcelDataReader;
 using Provider.Models;
 
 namespace Provider
 {
     public class ExcelManager
     {
-        private          Excel.Application     xlApp;
-        private          Excel.Workbook        xlWorkbook;
-        private readonly List<Excel.Worksheet> xlSheets;
-        private Excel.Worksheet xlWorksheet;
-        private Excel.Range xlRange;
-
         public ExcelManager()
         {
             var filePath = ConfigurationManager.AppSettings["filePath"];
-            xlSheets = new List<Excel.Worksheet>();
-            var 
             InitExcelWorkbook(filePath);
         }
 
         private void InitExcelWorkbook(string path)
         {
-            xlApp       = new Excel.Application();
-            xlWorkbook  = xlApp.Workbooks.Open(path);
-            xlWorksheet = xlWorkbook.Sheets[1] as Excel.Worksheet;
-            xlRange = xlWorksheet.UsedRange;
+            using (var stream = File.Open(path, FileMode.Open, FileAccess.ReadWrite))
+            {
+                using (var reader = ExcelReaderFactory.CreateReader(stream))
+                {
+                    do
+                    {
+                        for (var i = 0; i <= 14; i += 2)
+                        {
+                            while (reader.Read())
+                            {
+                                var name  = reader.GetValue(i);
+                                var price = reader.GetValue(i + 1);
+
+                                var xxx = name + ": " + price + "€";
+                            }
+                        }
 
 
-            //foreach (Worksheet sheet in xlWorkbook.Sheets)
-            //{
-            //    xlSheets.Add(sheet);
-            //}
+
+
+                    } while (reader.NextResult());
+
+                    //var result = reader.AsDataSet();
+
+                    //var x = result.Tables[0]
+                    //              .Rows[1];
+                }
+            }
         }
 
         public ExcelModel GetExcelData()
         {
             return null;
-        }
-
-        //private string ReadCell(int i, int j)
-        //{
-        //    if (xlWorksheet.Cells[i, j].Value2 != null)
-        //        return xlWorksheet.Cells[i, j].Value2.ToString();
-
-        //    return $"Cell [{i}, {j}] is empty";
-        //}
-
-        public Excel.Workbook GetWorkbook()
-        {
-            return xlWorkbook;
-        }
-
-        public List<Excel.Worksheet> GetSheets()
-        {
-            return xlSheets;
         }
     }
 }
