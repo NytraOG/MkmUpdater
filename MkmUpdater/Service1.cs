@@ -38,7 +38,7 @@ namespace MkmUpdater
             if (!Directory.Exists(Constants.Path))
                 Directory.CreateDirectory(Constants.Path);
 
-            var filePath = Constants.Path + "\\ServiceLog_" + DateTime.Now.DayOfWeek;
+            var filePath = Constants.Path + "\\ServiceLog_" + DateTime.Now.DayOfWeek + ".txt";
 
             if (!File.Exists(filePath))
                 using (var writer = File.CreateText(filePath))

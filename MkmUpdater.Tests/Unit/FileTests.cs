@@ -14,7 +14,7 @@ namespace MkmUpdater.Tests.Unit
         public void Init()
         {
             serviceInstance = new Service1();
-            filePath = Constants.Path + "\\ServiceLog_" + DateTime.Now.DayOfWeek;
+            filePath = Constants.Path + "\\ServiceLog_" + DateTime.Now.DayOfWeek + ".txt";
         }
 
         [TestCleanup]
