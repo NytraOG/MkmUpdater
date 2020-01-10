@@ -33,14 +33,12 @@ namespace MkmUpdater
             WriteToFile($"Service is recall at {DateTime.Now}");
         }
 
-        private void WriteToFile(string message)
+        public void WriteToFile(string message)
         {
-            var path = AppDomain.CurrentDomain.BaseDirectory + "\\Logs";
+            if (!Directory.Exists(Constants.Path))
+                Directory.CreateDirectory(Constants.Path);
 
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-
-            var filePath = path + "\\ServiceLog_" + DateTime.Now.ToShortDateString();
+            var filePath = Constants.Path + "\\ServiceLog_" + DateTime.Now.DayOfWeek;
 
             if (!File.Exists(filePath))
                 using (var writer = File.CreateText(filePath))
