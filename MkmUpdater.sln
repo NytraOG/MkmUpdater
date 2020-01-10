@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MkmUpdater", "MkmUpdater\MkmUpdater.csproj", "{394E644D-7E4E-4368-ABF6-539353DCD847}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MkmUpdater.Tests", "MkmUpdater.Tests\MkmUpdater.Tests.csproj", "{32771657-01D8-478A-A67A-9A0E651AD183}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{394E644D-7E4E-4368-ABF6-539353DCD847}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{394E644D-7E4E-4368-ABF6-539353DCD847}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{394E644D-7E4E-4368-ABF6-539353DCD847}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{394E644D-7E4E-4368-ABF6-539353DCD847}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32771657-01D8-478A-A67A-9A0E651AD183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32771657-01D8-478A-A67A-9A0E651AD183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32771657-01D8-478A-A67A-9A0E651AD183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32771657-01D8-478A-A67A-9A0E651AD183}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AB404511-C9B8-4406-8E6F-AF89E0F14A7E}
+	EndGlobalSection
+EndGlobal
