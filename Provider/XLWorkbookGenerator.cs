@@ -5,11 +5,11 @@ using Provider.Models;
 
 namespace Provider
 {
-    public class ExcelManager
+    public class XlWorkbookGenerator
     {
         private readonly FileStream excelStream;
 
-        public ExcelManager()
+        public XlWorkbookGenerator()
         {
             var filePath = ConfigurationManager.AppSettings["filePath"];
             excelStream = InitExcelWorkbook(filePath);
@@ -22,7 +22,7 @@ namespace Provider
             return stream;
         }
 
-        public ExcelModel GetExcelData()
+        public ExcelModel GetWorkbook()
         {
             using (var reader = ExcelReaderFactory.CreateReader(excelStream))
             {

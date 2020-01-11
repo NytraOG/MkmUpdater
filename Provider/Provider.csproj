@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="ExcelManager.cs" />
+    <Compile Include="XLWorkbookGenerator.cs" />
     <Compile Include="MappingExtensions\Mapper.cs" />
     <Compile Include="Models\ColumnModel.cs" />
     <Compile Include="Models\ExcelModel.cs" />

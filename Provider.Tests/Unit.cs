@@ -7,12 +7,12 @@ namespace Provider.Tests
     [TestClass]
     public class Unit
     {
-        private ExcelManager manager;
+        private XlWorkbookGenerator manager;
 
         [TestInitialize]
         public void Init()
         {
-            manager = new ExcelManager();
+            manager = new XlWorkbookGenerator();
         }
 
         [TestMethod]
@@ -22,7 +22,7 @@ namespace Provider.Tests
             var expectedSheetCount = 4;
 
             //Act
-            var actualSheetCount = manager.GetExcelData().Sheets.Count;
+            var actualSheetCount = manager.GetWorkbook().Sheets.Count;
 
             //Assert
             Assert.AreEqual(expectedSheetCount, actualSheetCount);
@@ -36,7 +36,7 @@ namespace Provider.Tests
             var expectedColumnName = "Creature";
 
             //Act
-            var actualWorkbook       = manager.GetExcelData();
+            var actualWorkbook       = manager.GetWorkbook();
             var actualSheet          = actualWorkbook.Sheets.FirstOrDefault(x => x.Name       == expectedSheetName);
             var actualCreatureColumn = actualSheet?.Columns.FirstOrDefault(x => x.Description == expectedColumnName);
 
