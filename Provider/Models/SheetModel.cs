@@ -12,5 +12,10 @@ namespace Provider.Models
 
         public string Name { get; set; }
         public List<ColumnModel> Columns { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 }

@@ -11,5 +11,10 @@ namespace Provider.Models
 
         public string                      Description { get; set; }
         public Dictionary<string, decimal> Entrys      { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Description}";
+        }
     }
 }

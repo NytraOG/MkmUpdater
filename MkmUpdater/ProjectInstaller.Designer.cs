@@ -1,4 +1,6 @@
-﻿namespace MkmUpdater
+﻿using Provider;
+
+namespace MkmUpdater
 {
     partial class ProjectInstaller
     {

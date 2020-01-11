@@ -26,74 +26,87 @@ namespace Provider
         {
             using (var reader = ExcelReaderFactory.CreateReader(excelStream))
             {
+                var excelWorkbook = new ExcelModel {Name = Constants.WorkbookName};
+
                 do
                 {
-                    var sheet = new SheetModel();
-                    sheet.Name = reader.Name;
+                    var sheet = new SheetModel {Name = reader.Name};
+
+                    var landColumn         = new ColumnModel();
+                    var creatureColumn     = new ColumnModel();
+                    var sorceryColumn      = new ColumnModel();
+                    var instantColumn      = new ColumnModel();
+                    var enchantmentColumn  = new ColumnModel();
+                    var artifactColumn     = new ColumnModel();
+                    var planeswalkerColumn = new ColumnModel();
 
 
                     while (reader.Read())
                     {
-                        var landColumn = new ColumnModel();
-                        var landName  = reader.GetValue(0).ToString();
-                        var landPrice = reader.GetDecimal(1);
+                        var landName  = reader.GetValue(0)?.ToString();
+                        var landPrice = reader.GetValue(1)?.ToString();
                         if (landColumn.Description == null)
                             landColumn.Description = landName;
                         else
-                            landColumn.Entrys.Add(landName, landPrice);
+                            if (!string.IsNullOrWhiteSpace(landName) && !string.IsNullOrWhiteSpace(landPrice))
+                                landColumn.Entrys.Add(landName, decimal.Parse(landPrice));
 
-                        var creatureColumn = new ColumnModel();
-                        var creatureName  = reader.GetValue(2).ToString();
-                        var creaturePrice = reader.GetDecimal(3);
+
+                        var creatureName  = reader.GetValue(2)?.ToString();
+                        var creaturePrice = reader.GetValue(3)?.ToString();
                         if (creatureColumn.Description == null)
                             creatureColumn.Description = creatureName;
                         else
-                            creatureColumn.Entrys.Add(creatureName, creaturePrice);
+                            if (!string.IsNullOrWhiteSpace(creatureName) && !string.IsNullOrWhiteSpace(creaturePrice))
+                                creatureColumn.Entrys.Add(creatureName, decimal.Parse(creaturePrice));
 
-                        var sorceryColumn = new ColumnModel();
-                        var sorceryName  = reader.GetValue(4).ToString();
-                        var sorceryPrice = reader.GetDecimal(5);
+                        var sorceryName  = reader.GetValue(4)?.ToString();
+                        var sorceryPrice = reader.GetValue(5)?.ToString();
                         if (sorceryColumn.Description == null)
                             sorceryColumn.Description = sorceryName;
                         else
-                            sorceryColumn.Entrys.Add(sorceryName, sorceryPrice);
+                            if (!string.IsNullOrWhiteSpace(sorceryName) && !string.IsNullOrWhiteSpace(sorceryPrice))
+                                sorceryColumn.Entrys.Add(sorceryName, decimal.Parse(sorceryPrice));
 
-                        var instantColumn = new ColumnModel();
-                        var instantName  = reader.GetValue(6).ToString();
-                        var instantPrice = reader.GetDecimal(7);
+                        var instantName  = reader.GetValue(6)?.ToString();
+                        var instantPrice = reader.GetValue(7)?.ToString();
                         if (instantColumn.Description == null)
                             instantColumn.Description = instantName;
                         else
-                            instantColumn.Entrys.Add(instantName, instantPrice);
+                            if (!string.IsNullOrWhiteSpace(instantName) && !string.IsNullOrWhiteSpace(instantPrice))
+                                instantColumn.Entrys.Add(instantName, decimal.Parse(instantPrice));
 
-                        var enchantmentColumn = new ColumnModel();
-                        var enchantmentName  = reader.GetValue(8).ToString();
-                        var enchantmentPrice = reader.GetDecimal(9);
+                        var enchantmentName  = reader.GetValue(8)?.ToString();
+                        var enchantmentPrice = reader.GetValue(9)?.ToString();
                         if (enchantmentColumn.Description == null)
                             enchantmentColumn.Description = enchantmentName;
                         else
-                            enchantmentColumn.Entrys.Add(enchantmentName, enchantmentPrice);
+                            if (!string.IsNullOrWhiteSpace(enchantmentName) && !string.IsNullOrWhiteSpace(enchantmentPrice))
+                                enchantmentColumn.Entrys.Add(enchantmentName, decimal.Parse(enchantmentPrice));
 
-                        var artifactColumn = new ColumnModel();
-                        var artifactName  = reader.GetValue(10).ToString();
-                        var artifactPrice = reader.GetDecimal(11);
+                        var artifactName  = reader.GetValue(10)?.ToString();
+                        var artifactPrice = reader.GetValue(11)?.ToString();
                         if (artifactColumn.Description == null)
                             artifactColumn.Description = artifactName;
                         else
-                            artifactColumn.Entrys.Add(artifactName, artifactPrice);
+                            if(!string.IsNullOrWhiteSpace(artifactName) && !string.IsNullOrWhiteSpace(artifactPrice))
+                                artifactColumn.Entrys.Add(artifactName, decimal.Parse(artifactPrice));
 
-                        var planeswalkerColumn = new ColumnModel();
-                        var planeswalkerName  = reader.GetValue(12).ToString();
-                        var planeswalkerPrice = reader.GetDecimal(13);
+                        var planeswalkerName  = reader.GetValue(12)?.ToString();
+                        var planeswalkerPrice = reader.GetValue(13)?.ToString();
                         if (planeswalkerColumn.Description == null)
                             planeswalkerColumn.Description = planeswalkerName;
                         else
-                            planeswalkerColumn.Entrys.Add(planeswalkerName, planeswalkerPrice);
+                            if(!string.IsNullOrWhiteSpace(planeswalkerName) && !string.IsNullOrWhiteSpace(planeswalkerPrice))
+                                planeswalkerColumn.Entrys.Add(planeswalkerName, decimal.Parse(planeswalkerPrice));
                     }
-                } while (reader.NextResult());
-            }
 
-            return null;
+                    sheet.Columns.AddRange(new []{ landColumn, creatureColumn, sorceryColumn, instantColumn, enchantmentColumn, artifactColumn, planeswalkerColumn });
+                    excelWorkbook.Sheets.Add(sheet);
+                } while (reader.NextResult());
+
+                return excelWorkbook;
+            }
         }
     }
 }

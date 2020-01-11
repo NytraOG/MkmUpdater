@@ -2,6 +2,7 @@
 using System.IO;
 using System.ServiceProcess;
 using System.Timers;
+using Provider;
 
 namespace MkmUpdater
 {

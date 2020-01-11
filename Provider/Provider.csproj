@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="ExcelManager.cs" />
     <Compile Include="MappingExtensions\Mapper.cs" />
     <Compile Include="Models\ColumnModel.cs" />

@@ -61,6 +61,10 @@
       <Project>{394e644d-7e4e-4368-abf6-539353dcd847}</Project>
       <Name>MkmUpdater</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Provider\Provider.csproj">
+      <Project>{6100A033-EB18-43E5-9EC3-7401E778709C}</Project>
+      <Name>Provider</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
